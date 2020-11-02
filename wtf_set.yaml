@@ -1,7 +1,6 @@
-- lineinfile:
+- ansible.builtin.lineinfile:
     path: "{{ config_wtf.path }}"
     regexp: "^SET {{ cvar.key }} "
-    state: present
     line: 'SET {{ cvar.key }} "{{ cvar.value }}"'
   loop: "{{ wtf_cvars | dict2items }}"
   loop_control:
