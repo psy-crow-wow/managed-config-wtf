@@ -1,0 +1,32 @@
+- hosts: localhost
+  connection: local
+  become: false
+  gather_facts: false
+  vars:
+    wtf_dir: /Volumes/WTF
+    wtf_cvars:
+      checkAddonVersion: 0
+      ffxGlow: 0
+      gxApi: D3D12
+      gxMaxFrameLatency: 2
+      gxMaximize: 1
+      gxWindow: 1
+      maxfps: 0
+      maxfpsbk: 0
+      RenderScale: 1
+      targetFPS: 0
+      useIPv6: 1
+      vsync: 0
+  tasks:
+    - find:
+        paths: "{{ wtf_dir }}"
+        file_type: file
+        recurse: false
+        use_regex: true
+        patterns: 'Config-.*\.WTF$'
+      register: config_wtf
+
+    - include_tasks: wtf_set.yaml
+      loop: "{{ config_wtf.files }}"
+      loop_control:
+        loop_var: config_wtf
