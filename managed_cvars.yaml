@@ -1,0 +1,16 @@
+---
+managed_cvars:
+  advancedCombatLogging: 1
+  checkAddonVersion: 0
+  ffxGlow: 0
+  gxApi: D3D12
+  gxMaxFrameLatency: 2
+  gxMaximize: 1
+  gxWindow: 1
+  maxfps: 0
+  maxfpsbk: 0
+  RenderScale: 1
+  smoothUnitPhasingVehicleExtraTimeoutMs: 5000
+  targetFPS: 0
+  useIPv6: 1
+  vsync: 0
